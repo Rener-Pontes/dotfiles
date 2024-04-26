@@ -1,0 +1,3 @@
+COMPLETIONS_PATH=$ZSH_CUSTOM/completions
+
+source $COMPLETIONS_PATH/starship

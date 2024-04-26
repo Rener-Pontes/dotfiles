@@ -1,0 +1,6 @@
+FUNCTIONS_PATH=$ZSH_CUSTOM/functions
+
+source $FUNCTIONS_PATH/cmkdir.fn
+source $FUNCTIONS_PATH/extract.fn
+source $FUNCTIONS_PATH/sys-upgrade.fn
+source $ZSH_CUSTOM/functions/up.fn

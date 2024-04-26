@@ -1,0 +1,12 @@
+#!/bin/env zsh
+
+sys-upgrade () {
+	sudo apt update
+
+	if apt-get --just-print upgrade | grep -qE '^Inst'; then
+		sleep 2
+		sudo apt full-upgrade -y
+	fi
+
+	flatpak update -y
+}
