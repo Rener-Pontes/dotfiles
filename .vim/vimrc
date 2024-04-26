@@ -1,0 +1,101 @@
+" Enable filetype detection, plugins and indenting
+filetype on
+filetype plugin on
+filetype indent on
+
+" Enable syntax highliting
+syntax on
+
+" Set language options
+set langmenu=en_US.utf-8
+language en_US.utf-8
+language messages en_US.utf-8
+
+" Basic display settings
+set relativenumber
+set cursorline
+set wrap
+
+" Search settings
+set incsearch
+set smartcase
+set hlsearch
+
+" Show mode, command and matching parentheses
+set showmode
+set showcmd
+set showmatch
+
+" Wildmenu settings
+set wildmenu
+
+" Tab and indent settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
+set autoindent
+
+" Enable spell checking
+set spell
+set spelllang=en_us,pt_br
+
+" Disable backup files
+set nobackup
+
+" Scroll offset and history size
+set scrolloff=15
+set history=1000
+
+
+" PLUGINS --------------------------------------------------------- {{{
+call plug#begin('~/.vim/plugged')
+	Plug 'dense-analysis/ale'
+	Plug 'lukas-reineke/intend-blankline'
+call plug#end()
+" }}}
+
+" MAPPINGS -------------------------------------------------------- {{{
+"
+" }}}
+
+" VIMSCRIPT ------------------------------------------------------- {{{
+" Filetype-specific settings for VIM files
+augroup filetype_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" Configure all files inside .scripts to be shell scripts files
+autocmd BufNewFile,BufRead ~/.scripts/* set filetype=sh
+
+" GUI-specific settings
+if has('gui_running')
+	set background=dark
+	colorscheme molokai
+
+	set guifont=JetBrains\ Mono\ 11
+
+	set guioptions-=T
+	set guioptions-=L
+	set guioptions-=r
+	set guioptions-=m
+	set guioptions-=b
+
+	" Toggle toolbar, menu and scroll with F4
+	nnoremap <F4> :if &guioptions=~#'mTr'<Bar>
+        \set guioptions-=mTr<Bar>
+        \else<Bar>
+	    \set guioptions+=mTr<Bar>
+        \endif<CR>
+endif
+" }}}
+
+" STATUS LINE ----------------------------------------------------- {{{
+set statusline=
+
+set statusline+=\ %F\ %M\ %Y\ %R
+set statusline+=%=
+set statusline+=\ row:\ %l\ col:\ %c\ percent:\ %p%%
+set laststatus=2
+" }}}
