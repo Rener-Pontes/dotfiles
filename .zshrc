@@ -70,7 +70,7 @@ export ZSH_CUSTOM="$HOME/.zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,7 +126,6 @@ fi
 #
 # Setting the STARSHIP PROMPT
 eval "$(starship init zsh)"
-
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 	source /etc/profile.d/vte-2.91.sh
