@@ -3,13 +3,13 @@
 alias cat='batcat'
 
 ## LS aliases
-alias ls='exa --color=always --group-directories-first'		# Using exa with flags
-alias la='exa -a --color=always --group-directories-first'	# Using e
-alias ll='exa -lh --color=always --group-directories-first'
-alias lla='exa -lah --color=always --group-directories-first'
-alias lt='exa -T --color=always --group-directories-first'
-alias llt='exa -Tlah --color=always --group-directories-first'
-alias l.='exa -a | egrep "^\."'
+alias ls='exa --color=always --group-directories-first --icons'		# Using exa with flags
+alias la='exa -a --color=always --group-directories-first --icons'	# Using e
+alias ll='exa -lh --color=always --group-directories-first --icons'
+alias lla='exa -lah --color=always --group-directories-first --icons'
+alias lt='exa -T --color=always --group-directories-first --icons'
+alias llt='exa -Tlah --color=always --group-directories-first --icons'
+alias l.='exa -a --group-directories-first --icons | egrep "^. \."'
 
 ## CD aliases
 alias ..='cd ..'
