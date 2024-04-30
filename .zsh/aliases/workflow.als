@@ -33,3 +33,5 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias ln='ln -i'
 
+
+alias facul='cd ~/Documentos/Ciências\ da\ Computação/'
