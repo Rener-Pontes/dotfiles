@@ -1,6 +1,5 @@
 ALIASES_PATH=$ZSH_CUSTOM/aliases
 
-source $ALIASES_PATH/alias-configuration.als
 source $ALIASES_PATH/apt.als
 source $ALIASES_PATH/deb.als
 source $ALIASES_PATH/dotconfig.als
@@ -9,3 +8,4 @@ source $ALIASES_PATH/open-apps.als
 source $ALIASES_PATH/pdf.als
 source $ALIASES_PATH/projects.als
 source $ALIASES_PATH/workflow.als
+source $ALIASES_PATH/zsh-config.als
