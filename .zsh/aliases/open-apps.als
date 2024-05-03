@@ -5,7 +5,7 @@
 alias anki='DISABLE_QT5_COMPAT=1 anki'
 
 ## OPENING LIBRE OFFICE PROGRAMS
-alias writer='libreoffice --writer'
-alias calc='libreoffice --calc'
-alias impress='libreoffice --impress'
+alias writer='flatpak run org.libreoffice.LibreOffice --writer &'
+alias calc='flatpak run org.libreoffice.LibreOffice --calc &'
+alias impress='flatpak run org.libreoffice.LibreOffice --impress &'
 
