@@ -20,6 +20,6 @@ elif [ -x "$(which vim)" ] ; then
 fi
 
 # set man PAGER
-if [ $EDITOR ] ; then
-	PAGER="$EDITOR +Man!"
+if dpkg -l | grep -qw "bat" ; then
+	export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 fi
