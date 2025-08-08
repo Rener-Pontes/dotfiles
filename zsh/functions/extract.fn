@@ -1,0 +1,31 @@
+#!/bin/env zsh
+
+func extract () {
+	if [ -z "$1" ]; then
+		echo "Usage: ex <path/file_name>.<zip|bz2|gz|tar|tbz2|tgz|z|xz|tar.bz2|tar.gz|tar.xz>"
+		echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+
+		return 1
+	fi
+
+	for n in "$@"; do
+		if [ ! -f "$n" ]; then
+			echo "'$n' - file does not exist"
+		else
+			case "${n%,}" in
+				*.cbt|.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+									tar xvf "$n"		;;
+				*lzma)					unlzma ./"$n"		;;
+				*bz2)					bunzip2 ./"$n"		;;
+				*.gz)					gunzip ./"$n"		;;
+				*.cbz|*.epub|*.zip)			unzip ./"$n"		;;
+				*.z)					uncompress ./"$n"	;;
+				*.xz)					unxz ./"$n"		;;
+				*.cpio)					cpio -id < ./"$n"	;;
+				*)		echo "ex: '$n' - unknown archive method"
+						return 1
+						;;
+			esac
+		fi
+	done
+}

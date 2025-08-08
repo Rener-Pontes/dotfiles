@@ -1,0 +1,10 @@
+#!/bin/env zsh
+
+function sail() {
+	declare -r vendor_bin='./vendor/bin'
+	if [ -d $vendor_bin ] && [ -x $vendor_bin/sail ]; then
+		"./vendor/bin/sail $@"
+	else
+		echo "sail não encontrado."
+	fi
+}

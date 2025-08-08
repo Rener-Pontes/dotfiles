@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+function godot() {
+	godot_dir="$HOME/Godot"
+	choice="$(command ls $godot_dir | sed 's/Godot-//g' | sort -r | rofi -dmenu -l 10 -i -p 'Versão godot ')" || return 1
+
+	if [ "$choice" ]; then
+		godot_exe="${godot_dir}/Godot-${choice}"
+		[ -x "${godot_exe}" ] && "${godot_exe}" --editor "$@" || { echo "Não existe"; return 1 }
+	else
+		echo "Nada a fazer."
+	fi
+}

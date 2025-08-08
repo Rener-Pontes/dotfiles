@@ -1,0 +1,3 @@
+.zcomp*
+completions/_*
+.zsh_history

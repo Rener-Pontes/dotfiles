@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+function flatrun() {
+	if [ $# -eq 0 ]; then
+		echo "Pass the appname"
+		return 1
+	fi
+
+	declare -r app_name=$1
+}

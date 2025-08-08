@@ -1,0 +1,4 @@
+function new-session() {
+	path=$(pwd)
+	tmux new-session -s "$(basename path)" -t "$path"
+}

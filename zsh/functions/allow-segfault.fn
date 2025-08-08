@@ -1,0 +1,5 @@
+function allow-segfault() {
+	ulimit -c unlimited
+
+	sudo echo "./seg-fault" > /proc/sys/kernel/core_pattern
+}
