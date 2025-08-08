@@ -1,0 +1,276 @@
+# Alacritty Configuration
+
+# Imports additional configuration files.
+# Imports are loaded in order, with the importing file loaded last.
+# Paths can be absolute (`/`) or relative to home (`~/`).
+[general]
+import = [
+  # "/path/to/alacritty.toml",
+  # "themes/tokyo-night.toml",
+  "themes/dracula.toml",
+]
+
+# Live config reload (requires restart to change).
+live_config_reload = true
+
+# Startup directory. Defaults to parent process working directory if unset.
+working_directory = "None"
+
+# Enable IPC for `alacritty msg` (Unix only).
+ipc_socket = true
+
+
+# Environment variables.
+[env]
+TERM = "alacritty"
+
+
+# Window settings.
+[window]
+# Dimensions in lines/columns. Set to 0 for window manager's default size.
+dimensions = { columns = 0, lines = 0 }
+
+# Position in pixels: { x = <integer>, y = <integer> } | "None".
+position = "None"
+
+# Padding in pixels.
+padding = { x = 5, y = 5 }
+
+# Spread additional padding evenly.
+dynamic_padding = true
+
+# Window decorations: "Full", "None", "Transparent" (macOS), "Buttonless" (macOS).
+decorations = "None"
+
+# Background opacity (0.0 to 1.0).
+opacity = 0.8
+
+# Background blur.
+blur = true
+
+# Start up mode: "Windowed", "Maximized", "Fullscreen", "SimpleFullscreen" (macOS).
+startup_mode = "Windowed"
+
+# Window title.
+title = ""
+
+# Allow applications to change the window title.
+dynamic_title = true
+
+# Window class (Linux/BSD).
+class = { instance = "Alacritty", general = "Alacritty" }
+
+# Decorations theme variant: "Dark", "Light", "None".
+decorations_theme_variant = "Dark"
+
+# Prefer resizing by cell dimensions.
+resize_increments = true
+
+# Window level: "Normal" | "AlwaysOnTop".
+level = "Normal"
+
+
+# Scrolling behavior.
+[scrolling]
+# Maximum lines in scrollback buffer. Set to 0 to disable.
+history = 100000
+
+# Scrolling distance multiplier.
+multiplier = 5
+
+
+# Font configuration.
+[font]
+# Normal font.
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+# normal = { family = "CaskaydiaCove Nerd Font", style = "Regular" }
+
+# Bold font. Falls back to normal font family if not specified.
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+# bold = { family = "CaskaydiaCove Nerd Font", style = "Bold" }
+
+# Italic font. Falls back to normal font family if not specified.
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+# italic = { family = "CaskaydiaCove Nerd Font", style = "Italic" }
+
+# Bold italic font. Falls back to normal font family if not specified.
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+# bold_italic = { family = "CaskaydiaCove Nerd Font", style = "Bold Italic" }
+
+# Font size.
+size = 10.0
+
+# Extra space around characters.
+offset = { x = 0, y = 1 }
+
+# Glyph offset within cells.
+glyph_offset = { x = 0, y = 0 }
+
+# Use built-in font for box drawing characters.
+builtin_box_drawing = true
+
+
+# Color scheme.
+[colors]
+# Cursor colors. Values can be "CellForeground", "CellBackground", or hex color.
+cursor = { text = "CellBackground", cursor = "CellForeground" }
+
+# Vi mode cursor colors.
+vi_mode_cursor = { text = "CellBackground", cursor = "CellForeground" }
+
+# Line indicator color (for search/vi mode).
+line_indicator = { foreground = "None", background = "None" }
+
+# Footer bar color (search regex, hyperlink preview).
+footer_bar = { foreground = "0x1d1f21", background = "0xc5c8c6" }
+
+# Selection colors.
+selection = { text = "CellBackground", background = "CellForeground" }
+
+# Indexed colors (16 to 256).
+indexed_colors = [] # Example: `{ index = 16, color = "#ff00ff" }`
+
+# Apply window.opacity to all cell backgrounds.
+transparent_background_colors = true
+
+# Draw bold text with bright color variants.
+draw_bold_text_with_bright_colors = true
+
+# Default colors.
+[colors.primary]
+# foreground = "0xc5c8c6"
+# background = "0x1d1f21"
+
+# Bright and dim foreground colors.
+# dim_foreground = "0x828482"
+# bright_foreground = "0xeaeaea"
+
+# Search bar colors.
+# [colors.search]
+# matches = { foreground = "0x000000", background = "0xffffff" }
+# focused_match = { foreground = "0xffffff", background = "0x000000" }
+
+# Keyboard hints colors.
+# [colors.hints]
+# start = { foreground = "0x1d1f21", background = "0xe9ff6e" }
+# end = { foreground = "0xe0ff5e", background = "0x1d1f21" }
+
+# Normal colors palette.
+[colors.normal]
+# black = "0x1d1f21"
+# red = "0xcc6666"
+# green = "0xb5bd68"
+# yellow = "0xf0c674"
+# blue = "0x81a2be"
+# magenta = "0xb294bb"
+# cyan = "0x8abeb7"
+# white = "0xc5c8c6"
+
+# Bright colors palette.
+[colors.bright]
+# black = "0x666666"
+# red = "0xd54e53"
+# green = "0xb9ca4a"
+# yellow = "0xe7c547"
+# blue = "0x7aa6da"
+# magenta = "0xc397d8"
+# cyan = "0x70c0b1"
+# white = "0xeaeaea"
+
+# Dim colors palette.
+[colors.dim]
+# black = "0x131415"
+# red = "0x864343"
+# green = "0x777c44"
+# yellow = "0x9e824c"
+# blue = "0x556a7d"
+# magenta = "0x75617b"
+# cyan = "0x5b7d78"
+# white = "0x828482"
+
+
+# Bell settings.
+[bell]
+# Visual bell animation effect.
+animation = "Linear"
+
+# Duration of visual bell flash in milliseconds. 0 to disable.
+duration = 0
+
+# Visual bell animation color.
+color = "#ffffff"
+
+# Bell command execution. "<string>" | { program = "<string>", args = ["<string>",...] }
+command = "None"
+
+
+# Text selection.
+[selection]
+# Characters used as "semantic word" separators.
+semantic_escape_chars = ",│`|\":' ()[]{}<>\t"
+
+# Copy selected text to primary clipboard.
+save_to_clipboard = false
+
+# Cursor settings.
+[cursor]
+# Style setting.
+# Cursor blinking: "Never", "Off", "On", "Always".
+# Cursor shape: "Block", "Underline", "Beam".
+style = { shape = "Underline", blinking = "On" }
+
+# Vi mode cursor style. Falls back to normal cursor style if not specified.
+# Uses the same as default style.
+vi_mode_style = { shape = "Block", blinking = "Off" }
+
+# Cursor blinking interval in milliseconds.
+blink_interval = 750
+
+# Time in seconds before cursor stops blinking. 0 to disable timeout.
+blink_timeout = 5
+
+# Render cursor as hollow box when window is not focused.
+unfocused_hollow = false
+
+# Cursor thickness (0.0 to 1.0).
+thickness = 0.15
+
+
+[terminal]
+# Program to execute for the shell: "<string>" | { program = "<string>", args = ["<string>",]}.
+shell = { program = "/bin/zsh", args = ["-l"] }
+
+# Controls whence the content is copied to system clipboard with OSC 52 in a remote server: "Disabled" | "OnlyCopy" | "OnlyPaste" | "CopyPaste"
+osc52 = "OnlyCopy"
+
+
+# Mouse settings.
+[mouse]
+# Hide cursor temporarily when typing.
+hide_when_typing = true
+
+# Creates bindings for mouse.
+# Each binding can be created as { <mouse>, <mods>, <mode>, <command> | <chars> | <action> }
+bindings = []
+
+
+# Terminal hints.
+[hints]
+# Keys for hint labels.
+alphabet = "jfkdls;ahgurieowpq"
+
+# Enabled hints.
+# Each hint requires `regex` or `hyperlinks`, and `action` or `command`.
+# `mouse` and `binding` are optional.
+# `hyperlinks` highlights OSC 8 escape sequence hyperlinks.
+# `post_processing` shortens regex matches (useful for URIs).
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "O", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[keyboard]
