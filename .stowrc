@@ -1,0 +1,5 @@
+--target=~/.config
+--ignore=.stowrc
+--ignore=.gitignore
+--ignore=.gitmodules
+--ignore=.git
