@@ -1,37 +1,22 @@
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = function(group_name) vim.api.nvim_create_augroup(group_name, { clear = true }) end
+local keymap = vim.keymap.set
 
-autocmd('FileType', {
-  group = augroup('exit-win'),
-  pattern = { 'help', 'qf' },
-  callback = function()
-    vim.keymap.set('n', 'q', ':q<cr>', { desc = '', silent = true, buffer = vim.api.nvim_get_current_buf() })
-  end
-})
+keymap('n', '<leader><leader>s', function()
+  vim.cmd 'source %'
+  print 'File sourced'
+end, { desc = 'Source current file' })
 
-autocmd('TextYankPost', {
-  group = augroup('yank-highlight'),
-  callback = function()
-    vim.hl.on_yank()
-  end
-})
+keymap('n', '<leader><leader>x', ':.lua<cr>', { desc = 'Execute current line' })
+keymap('v', '<leader><leader>x', ':lua<cr>', { desc = 'Execute selected lines' })
 
-autocmd('VimEnter', {
-  group = augroup('listen-godotserver'),
-  callback = function()
-    local cwd = vim.fn.getcwd()
-    local project_file = cwd .. '/project.godot'
-    local host_file = '/tmp/godot.pipe'
+keymap('t', '<esc><esc>', '<C-\\><C-n>', { desc = '' })
+keymap('n', '<esc>', ':nohlsearch<cr>', { desc = '', silent = true })
+keymap('i', '<c-c>', '<esc>', { desc = '', })
 
-    -- Verifica se estamos em um projeto Godot
-    if cwd:match('^' .. vim.fn.expand('~/Projects/Godot')) and vim.fn.filereadable(project_file) == 1 then
-      -- Verifica se o arquivo godothost já existe
-      if vim.fn.filereadable(host_file) == 1 then
-        -- O arquivo já existe, então provavelmente já tem um servidor rodando
-        return
-      end
+keymap('n', '<m-n>', '<cmd>bn<cr>', { desc = 'Change to next buffer.' })
+keymap('n', '<m-p>', '<cmd>bp<cr>', { desc = 'Change to prev buffer.' })
 
-      vim.fn.serverstart(host_file)
-    end
-  end
-})
+keymap('n', '<m-j>', '<cmd>cnext<cr>', { desc = 'Change to next item of quickfix.' })
+keymap('n', '<m-k>', '<cmd>cprev<cr>', { desc = 'Change to prev item of quickfix.' })
+
+keymap('n', '<c-d>', '<c-d>zz', { desc = '', silent = true })
+keymap('n', '<c-u>', '<c-u>zz', { desc = '', silent = true })
