@@ -99,9 +99,10 @@ export HISTDUP=erase
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-local zsh_aliases="$ZSH_CUSTOM/aliases"
-local zsh_functions="$ZSH_CUSTOM/functions"
-local zsh_completions="$ZSH_CUSTOM/completions"
+local zsh_aliases="$ZDOTDIR/aliases"
+local zsh_functions="$ZDOTDIR/functions"
+local zsh_completions="$ZDOTDIR/completions"
+local zsh_misc="$ZDOTDIR/misc"
 
 source_files () {
 	local dir=$1
@@ -110,7 +111,7 @@ source_files () {
 	done
 }
 
-#Sourcing all personal aliases.
+# Sourcing all personal aliases.
 [ -d "$zsh_aliases/" ] && source_files $zsh_aliases
 
 # Sourcing all personal functions.
@@ -118,6 +119,9 @@ source_files () {
 
 # Sourcing all command completions.
 [ -d "$zsh_completions/" ] && fpath+=("$zsh_completions")
+
+# Sourcing some custom and random configs
+[ -d "$zsh_misc/" ] && source_files $zsh_misc
 
 
 # ASDF configs

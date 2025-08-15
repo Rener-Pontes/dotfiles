@@ -1,3 +1,5 @@
 .zcomp*
-completions/_*
 .zsh_history
+
+completions/_*
+misc/
