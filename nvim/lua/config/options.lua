@@ -23,6 +23,8 @@ opt.fillchars:append({ eob = ' ' })
 opt.autoindent = true
 opt.smartindent = true
 opt.smarttab = true
+opt.foldmethod = 'expr'
+opt.foldexpr = require 'nvim-treesitter'.foldexpr
 
 opt.splitright = true
 opt.splitbelow = true
