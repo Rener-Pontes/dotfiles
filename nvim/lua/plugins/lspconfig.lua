@@ -73,7 +73,7 @@ return {
         keymap({ 'n', 'v' }, '<leader>ws', t_builtin.lsp_workspace_symbols, 'Workspace Symbols')
 
         keymap({ 'n', 'v' }, 'K', vim.lsp.buf.hover, 'Retrieves information about the symbol')
-        keymap({ 'n', 'v' }, '<a-k>', vim.lsp.buf.signature_help, 'Retrieves the function signature')
+        keymap({ 'n', 'v' }, '<a-s-k>', vim.lsp.buf.signature_help, 'Retrieves the function signature')
 
         keymap({ 'n', 'v' }, '<leader>cr', vim.lsp.buf.rename, 'Rename word under cursor')
         keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Execute some code action')
