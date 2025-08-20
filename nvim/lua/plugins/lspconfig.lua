@@ -40,10 +40,10 @@ return {
           vim.api.nvim_create_autocmd('BufWritePre', {
             group = vim.api.nvim_create_augroup('lsp-format', { clear = true }),
             callback = function()
-              vim.lsp.buf.format { bufnr = event_args.buf, id = client.id, filter = function()
-                return client.name ~= 'clangd'
-              end, formatting_options = {} }
-              -- require 'conform'.format { bufnr = event_args.buf, id = client.id, formatting_options = {} }
+              -- vim.lsp.buf.format { bufnr = event_args.buf, id = client.id, filter = function()
+              --   return client.name ~= 'clangd'
+              -- end, formatting_options = {} }
+              require 'conform'.format { bufnr = event_args.buf, id = client.id, formatting_options = {}, lsp_format = 'fallback', }
             end
           })
         end
