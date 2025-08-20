@@ -6,8 +6,8 @@
 [general]
 import = [
   # "/path/to/alacritty.toml",
-  # "themes/tokyo-night.toml",
-  "themes/dracula.toml",
+  "themes/tokyo-night.toml",
+  # "themes/dracula.toml",
 ]
 
 # Live config reload (requires restart to change).
